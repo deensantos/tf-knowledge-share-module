@@ -1,9 +1,15 @@
 data "aws_subnet" "target_subnet" {
-  name = lower("tf-knowledge-share-vpc-${var.target_subnet}-${var.region}")
+  filter {
+    name = "tag:Name"
+    values = ["tf-knowledge-share-vpc-${var.target_subnet}-${var.region}${var.az}"]
+ }
 }
 
 data "aws_vpc" "main_vpc" {
-  name = "tf-knowledge-share-vpc"
+filter {
+    name   = "tag:Name"
+    values = ["tf-knowledge-share-vpc"]
+  }
 }
 
 resource "aws_network_interface" "eth1" {

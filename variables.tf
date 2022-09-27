@@ -53,3 +53,11 @@ variable "target_subnet" {
   description = "Subnet to deploy EC2 values acceptable are"
   default = null
 }
+
+variable "region" {
+  default = null
+}
+
+variable "az" {
+  default = "a"
+}
