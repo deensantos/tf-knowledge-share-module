@@ -1,4 +1,4 @@
-data "subnet" "target_subnet" {
+data "aws_subnet" "target_subnet" {
   name = lower("tf-knowledge-share-vpc-${var.target_subnet}-${var.region}")
 }
 
