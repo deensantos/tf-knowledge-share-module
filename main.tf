@@ -7,7 +7,7 @@ data "aws_vpc" "main_vpc" {
 }
 
 resource "aws_network_interface" "eth1" {
-  subnet_id   = data.subnet.target_subnet.id
+  subnet_id   = data.aws_subnet.target_subnet.id
   tags = {
     Name = "primary_network_interface"
   }
